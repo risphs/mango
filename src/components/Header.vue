@@ -6,11 +6,11 @@
                 <button id="server-button" @click="setServer(3)">Server</button>
                 <button id="server-button" @click="setServer(4)">Server</button>
                 <button id="server-button" @click="setServer(5)">Server</button>
-            </div>
+            </div> 
                 <button id="add-server-button" @click="addServer">
                     <img id="add-server-button-icon" src="../assets/plus-solid.svg" alt="+">
-                <h1 id="title">Mango</h1>
                 </button>
+                <h1 id="title">Mango</h1>
             <div id="orange-hr"></div>
         </div>
 </template>
@@ -46,7 +46,6 @@ export default {
 }
 
 #title {
-    display: inline-block;
     position: relative;
 
     width: 99px;
@@ -116,5 +115,72 @@ export default {
     margin-top: 5px;
     fill: #fff;
     background: #334155
+}
+
+/* Responsive Design */
+@media screen and (min-width: 800px) {
+    #title {
+        margin-left: 86%;
+        top: -185px;
+    }
+    #button-container {
+        margin-left: -240px;
+    }
+    #server-button {
+        width: 100px;
+        height: 30px;
+ 
+        margin-left: 6px;
+        margin-right: 6px;
+
+        font-size: 17px;
+    }
+    #add-server-button {
+        margin-left: 360px;
+        top: -90px;
+        height: 30px;
+        width: 30px;
+    }
+    #add-server-button-icon {
+        height: 21px;
+        width: 29px;
+    }
+    #orange-hr {
+        margin-top: -180px;
+    }
+}
+
+@media screen and (min-width: 1250px) { 
+    #title {
+        margin-left: 91%;
+        top: -193px;
+    }
+    #button-container {
+        margin-left: -515px;
+    }
+    #server-button {
+        font-size: 20px;
+
+        margin-left: 15px;
+        margin-right: 15px;
+
+        width: 120px;
+        height: 35px;
+    }
+    #add-server-button {
+        height: 35px;
+        width: 35px;
+        top: -95px;
+
+        margin-left: 300px;
+    }
+    #add-server-button-icon {
+        height: 26px;
+        width: 33px;
+    }
+    #orange-hr {
+        margin-left: 0px;
+        width: 100%;
+    }
 }
 </style>
