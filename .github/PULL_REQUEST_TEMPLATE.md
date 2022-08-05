@@ -7,7 +7,7 @@
 ...
 
 **Checklist**
-- [ ] I have read all the [Contributing Guide](https://github.com/risphs/tonic/blob/master/CONTRIBUTING.md).
+- [ ] I have read all the [Contributing Guide](https://github.com/ripe-org/mango/blob/master/CONTRIBUTING.md).
 
 
 - [ ] I have set the packages that need to be released for my changes to be effective.
