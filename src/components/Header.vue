@@ -11,7 +11,7 @@
                     <img id="add-server-button-icon" src="../assets/plus-solid.svg" alt="+">
                 </button>
                 <h1 id="title">Mango</h1>
-            <div id="orange-hr"></div>
+                <div id="orange-hr"></div>
         </div>
 </template>
 

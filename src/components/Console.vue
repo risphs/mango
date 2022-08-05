@@ -17,6 +17,7 @@ export default {
 
 <style>
 #console-background {
+    display: block;
     position: relative;
 
     width: 471px;
