@@ -1,14 +1,17 @@
 <template>
     <Header></Header>
+    <Console></Console>
 </template>
 
 <script lang="ts">
     import Header from './components/Header.vue'
+    import Console from './components/Console.vue'
 
     export default {
         name: 'App',
         components: {
-            Header
+            Header,
+            Console
         }
     }
 </script>
