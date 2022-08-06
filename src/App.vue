@@ -20,27 +20,49 @@
 
     // Connecting to WebSocket located on the server
 
+    interface socketResponseLayout {
+        header: String,
+        body: String
+    }
+
     const socket = new WebSocket(`ws://${ip}:${port}`);
 
-    socket.addEventListener('close', function (event) {
+    socket.addEventListener('close', function(event) {
         console.log("Disconnected from the WebSocket");
     }); 
 
     socket.addEventListener('message', function (event) {
-        console.log('Server Sent: ', event.data);
+        outgoingChecks(JSON.parse(event.data));
     });
 
     socket.addEventListener('error', function (event) {
         console.log('ERROR: ', event);
     });
 
-    const sendMessage = (message: any) => {
+    const sendMessage = (message: string) => { // Must be a strigified JSON object of type socketResponseLayout
         socket.send(message);
     }
 
-    if(socket.readyState === WebSocket.OPEN) {
-        sendMessage("Hello World!");
+    export function outgoingChecks(input: socketResponseLayout) {
+    if(input.header === 'CONSOLE-INFORMATION') {
+
+    } else if(input.header === 'CONSOLE-ERROR') {
+
+    } else if(input.header === 'SYSTEM-TOTAL-MEMORY-NUMBER') {
+
+    } else if(input.header === 'SYSTEM-USED-MEMORY-NUMBER') {
+
+    } else if(input.header === 'SYSTEM-REGISTERED-PROGRAM-INFORMATION') {
+
+    } else if(input.header === 'CURRENT-INCOMING-TRAFFIC-NUMBER') {
+
+    } else if(input.header === 'CURRENT-MEMORY-USAGE-NUMBER') {
+
+    } else if(input.header === 'CURRENT-CPU-USAGE-NUMBER') {
+
     }
+}
+
 
 </script>
 
