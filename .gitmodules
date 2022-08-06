@@ -1,0 +1,3 @@
+[submodule "mango-core"]
+	path = mango-core
+	url = https://github.com/ripe-org/mango-core.git
