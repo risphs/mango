@@ -49,7 +49,7 @@
     export let systemsRegisteredProgram: String  = 'MongoDB';
     export let incomingTraffic: Number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // Shows the last 10 didgets of the incoming traffic in people for the graph 
     export let incomingCPU: Number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    export let incomingMemory: Number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    export let freeMemory: Number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     export function outgoingChecks(input: socketResponseLayout) {
     const value: any = input.body; // If statments are just putting the values in the right place
@@ -78,12 +78,12 @@
     } else if(input.header === 'CURRENT-INCOMING-TRAFFIC-NUMBER') {
         incomingTraffic.push(value);
         incomingTraffic.shift();
-    } else if(input.header === 'CURRENT-MEMORY-USAGE-NUMBER') {
+    } else if(input.header === 'FREE-MEMORY-NUMBER') {
+        freeMemory.push(value);
+        freeMemory.shift();
+    } else if(input.header === 'CURRENT-CPU-USAGE-NUMBER') {
         incomingCPU.push(value);
         incomingCPU.shift();
-    } else if(input.header === 'CURRENT-CPU-USAGE-NUMBER') {
-        incomingMemory.push(value);
-        incomingMemory.shift();
     }
 }
 
