@@ -1,6 +1,7 @@
 <template>
     <Header></Header>
     <Console></Console>
+    <button @click="test()">Hi</button>
 </template>
 
 <script lang="ts">
@@ -15,6 +16,11 @@
         components: {
             Header,
             Console
+        },
+        methods: {
+            test() {
+                testing();
+            }
         }
     }
 
@@ -32,7 +38,9 @@
     }); 
 
     socket.addEventListener('message', function (event) {
-        outgoingChecks(JSON.parse(event.data));
+        let incoming: socketResponseLayout = JSON.parse(event.data);
+        console.log(incoming);
+        outgoingChecks(incoming);
     });
 
     socket.addEventListener('error', function (event) {
@@ -41,6 +49,16 @@
 
     const sendMessage = (message: string) => { // Must be a strigified JSON object of type socketResponseLayout
         socket.send(message);
+    }
+
+    function testing() {
+        const e: socketResponseLayout = {
+            header: "SYSTEM-TOTAL-MEMORY",
+            body: "test"
+        }
+        const message = JSON.stringify(e);
+
+        sendMessage(message);
     }
 
     export let consoleText: String[] = ['']; // This is the array that holds the console text
@@ -71,6 +89,7 @@
 
     } else if(input.header === 'SYSTEM-TOTAL-MEMORY-NUMBER') {
         systemTotalMemory = value;
+        console.log(systemTotalMemory);
     } else if(input.header === 'SYSTEM-USED-MEMORY-NUMBER') {
         systemUsedMemory = value;
     } else if(input.header === 'SYSTEM-REGISTERED-PROGRAM-INFORMATION') {
