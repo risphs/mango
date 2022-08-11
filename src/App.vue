@@ -38,8 +38,7 @@
     }); 
 
     socket.addEventListener('message', function (event) {
-        let incoming: socketResponseLayout = JSON.parse(event.data);
-        console.log(incoming);
+        const incoming: socketResponseLayout = JSON.parse(event.data);
         outgoingChecks(incoming);
     });
 
@@ -52,11 +51,12 @@
     }
 
     function testing() {
-        const e: socketResponseLayout = {
-            header: "SYSTEM-TOTAL-MEMORY",
-            body: "test"
+        // TODO: Fix the CONSOLE-RUN and the CURRENT-CPU-USAGE
+        const testRL: socketResponseLayout = {
+            header: "CURRENT-CPU-USAGE",
+            body: "dir"
         }
-        const message = JSON.stringify(e);
+        const message = JSON.stringify(testRL);
 
         sendMessage(message);
     }
@@ -89,7 +89,6 @@
 
     } else if(input.header === 'SYSTEM-TOTAL-MEMORY-NUMBER') {
         systemTotalMemory = value;
-        console.log(systemTotalMemory);
     } else if(input.header === 'SYSTEM-USED-MEMORY-NUMBER') {
         systemUsedMemory = value;
     } else if(input.header === 'SYSTEM-REGISTERED-PROGRAM-INFORMATION') {
